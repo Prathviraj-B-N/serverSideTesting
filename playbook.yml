@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Pull Docker image
+      docker_image:
+        name: prathvirajbn/calcapp
+        tag: latest
+        source: pull
+    
+    - name: Pull Docker image server
+      docker_image:
+        name: prathvirajbn/server
+        tag: latest
+        source: pull
+
+    - name: Create Docker containe
+      shell: "docker run -d -p 4001:3000 prathvirajbn/calcapp"
+    
+    - name: Create Docker container server
+      shell: "docker run -d -p 4002:4002 prathvirajbn/server"
+
