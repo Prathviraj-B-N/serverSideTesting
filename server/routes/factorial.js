@@ -23,6 +23,22 @@ router.post('/', (req, res) => {
     result *= i;
   }
 
+  const Calculation = require('../models/Calculation')
+  const newCalculation = new Calculation({
+    userId: userId,
+    operand1: operand1,
+    operand2: null,
+    operator: operator,
+    result: result
+  });
+  
+  newCalculation.save()
+  .then(savedCalculation => {
+    console.log('Calculation saved:', savedCalculation);
+  })
+  .catch(error => {
+    console.error('Error saving calculation:', error);
+  });
   res.json({ result: result.toString() });
 });
 

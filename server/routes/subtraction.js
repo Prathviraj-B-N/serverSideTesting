@@ -21,6 +21,7 @@ router.post('/', (req, res) => {
   // Calculate subtraction
   const result = num1 - num2;
 
+  const Calculation = require('../models/Calculation')
   const newCalculation = new Calculation({
     userId: userId,
     operand1: operand1,
@@ -36,7 +37,7 @@ router.post('/', (req, res) => {
   .catch(error => {
     console.error('Error saving calculation:', error);
   });
-  
+
   res.json({ result: result.toString() });
 });
 

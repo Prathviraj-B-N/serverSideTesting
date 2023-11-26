@@ -2,18 +2,6 @@ const cors = require("cors");
 const express = require("express");
 const logger = require("./logger");
 
-const app = express();
-const port = 4002;
-const dotenv = require('dotenv');
-dotenv.config();
-
-app.use(express.json());
-app.use(cors());
-
-app.get("/api/", (req, res) => {
-  res.json({ txt: "Hello World!" });
-});
-
 const additionRoute = require("./routes/addition");
 const subtractionRoute = require("./routes/subtraction");
 const multiplicationRoute = require("./routes/multiplication");
@@ -23,6 +11,19 @@ const sqrtRoute = require("./routes/sqrt");
 const logRoute = require("./routes/log");
 const factorialRoute = require("./routes/factorial");
 const userRoute = require("./routes/user")
+
+const app = express();
+const port = 4002;
+
+const dotenv = require('dotenv');
+dotenv.config();
+
+app.use(express.json());
+app.use(cors());
+
+app.get("/api/", (req, res) => {
+  res.json({ txt: "Hello World!" });
+});
 
 app.use("/api/add", additionRoute);
 app.use("/api/subtract", subtractionRoute);

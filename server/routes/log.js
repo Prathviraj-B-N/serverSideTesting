@@ -20,6 +20,22 @@ router.post('/', (req, res) => {
   // Calculate base-2 logarithm
   const result = Math.log2(num);
 
+  const Calculation = require('../models/Calculation')
+  const newCalculation = new Calculation({
+    userId: userId,
+    operand1: operand1,
+    operand2: null,
+    operator: operator,
+    result: result
+  });
+  
+  newCalculation.save()
+  .then(savedCalculation => {
+    console.log('Calculation saved:', savedCalculation);
+  })
+  .catch(error => {
+    console.error('Error saving calculation:', error);
+  });
   res.json({ result: result.toString() });
 });
 
