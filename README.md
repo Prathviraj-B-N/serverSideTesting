@@ -87,10 +87,3 @@ Graph-based testing ensures that test cases cover all possible paths and scenari
     > npm i </br>
     > setup .env file </br>
     > npm test 
-
-
-## reports on 
-1. test execution
-2. anomalies detected 
-3. coverage achieved
-4. overall assessment of the server-side calculator application's functionality
