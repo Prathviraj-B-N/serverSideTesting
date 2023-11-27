@@ -6,7 +6,7 @@ router.post('/', (req, res) => {
   const { userId, operand1, operator } = req.body;
 
   // Check if operands and operator are provided
-  if (!userId || !operand1 || !operator || operator !== '!') {
+  if (!userId || operand1=== undefined || !operator || operator !== '!') {
     // p2
     return res.status(400).json({ error: 'Invalid request. Please provide valid user ID, operand, and use the factorial operator (!).' });
   }
@@ -15,7 +15,7 @@ router.post('/', (req, res) => {
   const num = parseInt(operand1);
 
   // Check if the operand is a non-negative integer
-  if (isNaN(num) || num < 0 || num % 1 !== 0) {
+  if (isNaN(num) || num < 0) {
     // p4
     return res.status(400).json({ error: 'Factorial can only be calculated for non-negative integers.' });
   }
@@ -23,10 +23,13 @@ router.post('/', (req, res) => {
   // p5
   let result = 1;
 
+  // Update to handle input 0
+if (num !== 0) {
   // p6
   for (let i = 2; i <= num; i++) {
     result *= i;
   }
+}
 
   // p7
   const Calculation = require('../models/Calculation')

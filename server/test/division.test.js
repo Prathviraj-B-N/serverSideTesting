@@ -65,25 +65,49 @@ describe('Division Route', () => {
       });
   });
 
-  it('should handle valid input and save the calculation to the database (p1->p3->p5->p6->p7)', (done) => {
+  it("should save the calculation to the database", async () => {
+    const Calculation = require("../models/Calculation");
     console.log('Test Path: p1->p3->p5->p6->p7');
 
-    // Path 4: Valid input and save to the database
-    chai.request(app)
-      .post('/api/divide')
-      .send({
-        userId: '6563120f522e357f2bdea48c',
-        operand1: 8,
-        operand2: 2,
-        operator: '/'
-      })
-      .end((err, res) => {
-        expect(res).to.have.status(200);
-        // Add additional validation logic based on your database interactions
-        done();
+    const calculationData = {
+      userId: "6563120f522e357f2bdea48c",
+      operand1: 8,
+      operand2: 2,
+      operator: "/",
+      result: 4,
+    };
+
+    // path 2: Verify that the data was saved by checking the database
+    chai
+      .request(app)
+      .post("/api/division")
+      .send(calculationData)
+      .end(async (err, res) => {
+        try {
+          res.should.have.status(200); 
+
+          const savedCalculation = await Calculation.findOne({
+            userId: calculationData.userId,
+          });
+          chai.expect(savedCalculation).to.exist;
+          chai
+            .expect(savedCalculation.operand1)
+            .to.equal(calculationData.operand1);
+          chai
+            .expect(savedCalculation.operand2)
+            .to.equal(calculationData.operand2);
+          chai
+            .expect(savedCalculation.operator)
+            .to.equal(calculationData.operator);
+          chai.expect(savedCalculation.result).to.equal(calculationData.result);
+
+          // Call done() to signal the completion of the asynchronous test
+          done();
+        } catch (error) {
+          done(error); // Pass any errors to done() to signal a failed test
+        }
       });
   });
-
   it('should handle division with negative numbers and return the correct result (p1->p3->p5->p6->p7->p9)', (done) => {
     console.log('Test Path: p1->p3->p5->p6->p7->p9');
 
