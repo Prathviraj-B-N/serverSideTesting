@@ -33,7 +33,7 @@ describe('Subtraction Route', () => {
     chai.request(app)
       .post('/api/subtract')
       .send({
-        userId: '123',
+        userId: '6563120f522e357f2bdea48c',
         operand1: 'invalid',
         operand2: 10,
         operator: '-'

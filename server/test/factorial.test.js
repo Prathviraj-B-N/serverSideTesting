@@ -31,7 +31,7 @@ describe('Factorial Route', () => {
 
     chai.request(app)
       .post('/api/factorial')
-      .send({ userId: '123', operand1: '5', operator: '+' }) // Invalid operator
+      .send({ userId: '6563120f522e357f2bdea48c', operand1: '5', operator: '+' }) // Invalid operator
       .end((err, res) => {
         expect(res).to.have.status(400);
         expect(res.body).to.have.property('error');
@@ -45,7 +45,7 @@ describe('Factorial Route', () => {
 
     chai.request(app)
       .post('/api/factorial')
-      .send({ userId: '123', operand1: '-5', operator: '!' }) // Negative operand
+      .send({ userId: '6563120f522e357f2bdea48c', operand1: '-5', operator: '!' }) // Negative operand
       .end((err, res) => {
         expect(res).to.have.status(400);
         expect(res.body).to.have.property('error');

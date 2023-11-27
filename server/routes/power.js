@@ -47,7 +47,7 @@ router.post('/', (req, res) => {
     console.error('Error saving calculation:', error);
   });
   //p9
-  res.json({ result: result.toString() });
+  res.json({ result: result });
 });
 
 module.exports = router;
