@@ -45,7 +45,7 @@ router.post('/', (req, res) => {
   });
 
   //p9
-  res.json({ result: result.toString() });
+  res.json({ result: result });
 });
 
 module.exports = router;
