@@ -86,4 +86,11 @@ Graph-based testing ensures that test cases cover all possible paths and scenari
     > cd server </br>
     > npm i </br>
     > setup .env file </br>
-    > npm test 
+    > npm test
+
+### contribution
+Aman : 
+CIMs and modules for substraction, sqrt, multiplication, factorial
+
+Prathviraj : 
+CIMs and modules for addition, division, power, log
