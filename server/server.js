@@ -52,3 +52,5 @@ try {
 }
 
 start();
+
+module.exports = app;
