@@ -5,11 +5,12 @@ const router = express.Router();
 router.post('/', (req, res) => {
   const { userId, operand1, operand2, operator } = req.body;
 
-  // Check if operands and operator are provided
-  if (!userId || !operand1 || !operand2 || !operator || operator !== '*') {
-    // p2
-    return res.status(400).json({ error: 'Invalid request. Please provide valid user ID, operands, and use the multiplication operator (*).' });
-  }
+// Check if operands and operator are provided
+if (!userId || operand1 === undefined || operand2 === undefined || !operator || operator !== '*') {
+  // p2
+  return res.status(400).json({ error: 'Invalid request. Please provide valid user ID, operands, and use the multiplication operator (*).' });
+}
+
 
   // p3
   const num1 = parseFloat(operand1);
