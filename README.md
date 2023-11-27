@@ -33,6 +33,20 @@ inter component graph
 npm install mocha
 
 ## generated models
+### Component interaction Model(cim)
+
+#### addition
+![alt text](server/CIM/addition.png)
+
+#### division
+![alt text](server/CIM/division.png)
+
+#### factorial
+![alt text](server/CIM/fact.png)
+
+#### log2
+![alt text](server/CIM/log.png)
+
 
 ## test case designs
 ### Random values
