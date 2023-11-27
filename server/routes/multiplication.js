@@ -37,11 +37,14 @@ router.post('/', (req, res) => {
   // p7
   newCalculation.save()
   .then(savedCalculation => {
+    //p8
     console.log('Calculation saved:', savedCalculation);
   })
   .catch(error => {
+    //p9
     console.error('Error saving calculation:', error);
   });
+  //p10
   res.json({ result: result.toString() });
 });
 
