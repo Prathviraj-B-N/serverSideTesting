@@ -7,7 +7,7 @@ Steps to Follow:
 1. Understanding and Modeling the Server-Side Code
 2. Test Case Design
 3. Tool Selection 
-4. Execution and reporting
+4. Execution and results
 
 ## modeling approach
 The identification of atomic sections allows for focused testing within the context of CIM and ATG. Testing specific functionalities or interactions becomes more manageable and targeted.
@@ -28,7 +28,9 @@ factorial.js</br>
 <img src="server/CIM/fact.png" width="200" height="400">
 
 <b>ATG Graph</b></br>
-In ATG each node is a cim, transition among cim graphs are represented with deges ATGs are inter component graph.
+In ATG each node is a cim, transition among cim graphs are represented with edges.
+<img src="server/ATG/ATG.png" width="450">
+
 
 ## tools used 
 Mocha: Chosen for its robust testing framework, especially its support for asynchronous testing.
@@ -56,23 +58,23 @@ The above model inturn maps to our source code in divions.js shown below
 
 <img src="./public/images/example1Src.png"  width="400" height="400">
 
-
-
-Scenario Generation: Generating test scenarios from the ATG to cover various interactions between system components, focusing on specific sequences of operations or functionalities.
-
------------TODO-------------------- example like above
+result:
+<img src="./public/images/example1Test.png">
+The graph based approch helped us reveal that a test case is failing in division.js and the remaining paths passes succesfully.
 
 Benefits Derived:
 Graph-based testing ensures that test cases cover all possible paths and scenarios defined within the CIM/ATG, minimizing the chances of undiscovered issues.
-
-## execution process
-
 
 ## Results
 
 1. graphical representations of CIM can be found in [/server/CIM/](server/CIM)
 2. graphical representations of ATG can be found in [/server/ATG](server/ATG)
-3. interaction graphs related to the calculator application
+3. tests can be run by doing the following
+    > cd server </br>
+    > npm i </br>
+    > setup .env file </br>
+    > npm test 
+
 
 ## reports on 
 1. test execution
