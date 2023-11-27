@@ -10,56 +10,69 @@ Steps to Follow:
 4. Execution and reporting
 
 ## modeling approach
-atomic section and content variable(dynamic data)
+The identification of atomic sections allows for focused testing within the context of CIM and ATG. Testing specific functionalities or interactions becomes more manageable and targeted.
 
-CIM Graph
-models individual components
-combines atomic section using regular expressions
-    sequence p1.p2
-    selection p1 | p2
-    iteration p1*
-    Aggregation p1 {p2}, p2 inside p1
-intra component
-
-nodes - atomic section
-transitions - how to move from one section to other
-
-ATG Graph
-each node is one cim
-transition among cim graphs
-inter component graph
-
-## tools used 
-npm install mocha
+We generated CIM Graphs for our node server and then we combined them to get ATG.
 
 ## generated models
-### Component interaction Model(cim)
+<b>CIM examples</b>
+(All CIM's can be found in [CIM](server/CIM/))
 
-#### addition
-![alt text](server/CIM/addition.png)
+addition.js</br>
+<img src="server/CIM/addition.png" width="200">
 
-#### division
-![alt text](server/CIM/division.png)
+division.js</br>
+<img src="server/CIM/division.png" width="200">
 
-#### factorial
-![alt text](server/CIM/fact.png)
+factorial.js</br>
+<img src="server/CIM/fact.png" width="200" height="400">
 
-#### log2
-![alt text](server/CIM/log.png)
+<b>ATG Graph</b></br>
+In ATG each node is a cim, transition among cim graphs are represented with deges ATGs are inter component graph.
 
+## tools used 
+Mocha: Chosen for its robust testing framework, especially its support for asynchronous testing.
+
+Chai: Utilized for expressive and readable assertions, enhancing test readability and understanding.
+
+Chai-HTTP: Specifically employed for testing HTTP services/APIs, providing specialized assertions for API testing.
 
 ## test case designs
-### Random values
-### from session log files
-### using domain knowledge
-### Using Modeled CIM/ATG 
+1. using domain knowledge
+1. using Modeled CIM/ATG
+
+<b>Application of Graph-Based Testing:</b><br/>
+Coverage Criteria: Utilizing graph-based coverage criteria (such as node coverage, edge coverage, etc.) to ensure that each node/state and transition in the ATG is covered by test cases.
+
+Path Analysis: Analyzing paths through the ATG to derive test scenarios and identify critical paths that require testing to ensure system reliability and functionality.
+
+<b>Example</b>
+![example1](/public/images/example1.png)
+the above code shows path coverage for the path p1->p3->p5->p6->p7->p9 for division.js and it's CIM looks like the below image.
+
+<img src="server/CIM/division.png"  width="400" height="400">
+
+The above model inturn maps to our source code in divions.js shown below 
+
+<img src="./public/images/example1Src.png"  width="400" height="400">
+
+
+
+Scenario Generation: Generating test scenarios from the ATG to cover various interactions between system components, focusing on specific sequences of operations or functionalities.
+
+-----------TODO-------------------- example like above
+
+Benefits Derived:
+Graph-based testing ensures that test cases cover all possible paths and scenarios defined within the CIM/ATG, minimizing the chances of undiscovered issues.
 
 ## execution process
 
-## Graphical Representations and Results
 
-1. graphical representations of CIM, ATG models 
-2. interaction graphs related to the calculator application
+## Results
+
+1. graphical representations of CIM can be found in [/server/CIM/](server/CIM)
+2. graphical representations of ATG can be found in [/server/ATG](server/ATG)
+3. interaction graphs related to the calculator application
 
 ## reports on 
 1. test execution
