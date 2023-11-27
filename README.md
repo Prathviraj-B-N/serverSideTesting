@@ -48,6 +48,19 @@ Coverage Criteria: Utilizing graph-based coverage criteria (such as node coverag
 
 Path Analysis: Analyzing paths through the ATG to derive test scenarios and identify critical paths that require testing to ensure system reliability and functionality.
 
+<b> coverage </b>
+
+addition : p1.p2 + p1.p3.(p0)*.p4.(p5 + p6).p7
+
+substraction : p1.(p2 + p3.p4 + p3.p5.p6.(p7 + p8).p9)
+
+square root : p1.(p2 + p3.p4 + p3.p5.p6.(p7 + p8).p9)
+
+power : p1.(p2 + p3.p4 + p3.p5.p6.(p7 + p8).p9)
+
+factorial : p1.(p2 + p3.p4 + p3.p5.(p6*).p7.p8.(p9 + p10).p11)
+
+
 <b>Example</b>
 ![example1](/public/images/example1.png)
 the above code shows path coverage for the path p1->p3->p5->p6->p7->p9 for division.js and it's CIM looks like the below image.
